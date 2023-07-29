@@ -8,22 +8,17 @@ import unfilledheart from './assets/unfilledheart.png';
 
 import './Results.css'
 
+const productData = Array.from({ length: 8 }, () => ({
+  name: faker.commerce.productName(),
+  imageUrl: faker.image.imageUrl(239, 325, 'clothing'),
+  
+}));
+
+function getRandomNumber(min:number,max:number):number{
+  return Math.floor(Math.random()* (max-min)+ min);
+}
 
 const Results = () => {
-
-  // const randomNumber = Math.random();
-
-  
-
-  function getRandomNumber(min:number,max:number):number{
-    return Math.floor(Math.random()* (max-min)+ min);
-  }
-
-  const productData = Array.from({ length: 8 }, () => ({
-    name: faker.commerce.productName(),
-    imageUrl: faker.image.imageUrl(239, 325, 'clothing'),
-    
-  }));
 
   const[isExpanded, setIsExpanded] = useState(true);
   const handleToggle = ()=>{
