@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import { IoIosArrowDown } from "react-icons/io";
 import { faker } from '@faker-js/faker';
-import Star from './Star.png';
-import filledheart from './filledheart.png';
-import unfilledheart from './unfilledheart.png';
+import Star from './assets/Star.png';
+import filledheart from './assets/filledheart.png';
+import unfilledheart from './assets/unfilledheart.png';
 
 import './Results.css'
 
