@@ -25,6 +25,7 @@
     width: 480px;
     height: 30px;
     border: 1px solid #ccc;
+    top: 44px;
     
     /* padding-bottom: 0px; */
  
@@ -57,7 +58,7 @@ input::placeholder {
     color: #999;
     cursor: pointer;
     /* padding-top: 25px; */
-    margin-top: 4px;
+    top: 50px;
 }
 .resultsection{
     position: relative;
