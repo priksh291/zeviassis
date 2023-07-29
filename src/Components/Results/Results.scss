@@ -114,6 +114,7 @@ input {
 	cursor: pointer;
 	justify-content: space-between;
 }
+
 .productlist {
 	position: relative;
 	display: flex;
@@ -125,6 +126,8 @@ input {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 39px;
+
+        
 	}
 }
 .star {
@@ -150,3 +153,39 @@ input {
 	left: 200px;
 	cursor: pointer;
 }
+
+
+    .viewproduct{
+        display: none;
+        position: absolute;
+        color: white;
+        margin-top: 285px;
+        
+        margin-left: 0px;
+        align-items: center;
+        justify-items: center;
+        inset: 0;
+        width: 239x;
+        height: 20px;
+        // transform: translate(-50%, -50%);
+        // background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(109, 132, 255, 0.71);
+        
+        padding: 10px;
+        padding-left: 68px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        opacity: 0;
+
+    }
+
+
+div:hover .viewproduct {
+    display: block;
+    opacity: 1;
+
+        // Define the transition properties for a smooth animation
+        transition: opacity 0.8s ease, transform 0.3s ease;
+        transform: translateY(0)
+  }

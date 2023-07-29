@@ -29,7 +29,18 @@ const Results = () => {
     const updatedFavorites = [...favorites];
     updatedFavorites[index] = !updatedFavorites[index];
     setFavorites(updatedFavorites);
+
   }
+
+  const [showViewProduct, setShowViewProduct] = useState<number | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    setShowViewProduct(index);
+  };
+
+  const handleMouseLeave = () => {
+    setShowViewProduct(null);
+  };
   return (
     <div>
       <div>
@@ -68,11 +79,13 @@ const Results = () => {
        
           <div>
             {productData.map((product, index) => (
-            <div key={index}>
+            <div key={index} onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
               <div style={{position:'relative'}}>
               <img style={{borderRadius: 5}} src={product.imageUrl} alt={`Product ${index + 1}`} />
               <div className='hearticon' onClick={()=>toggleFavorite(index)}><img src={favorites[index] ? filledheart: unfilledheart} alt='heart'/></div>
-
+              {showViewProduct === index && (
+                  <div className={`viewproduct ${showViewProduct === index ? 'show' : ''}`}>view product</div>
+                )}
               </div>
               <p style={{marginBottom:-10,fontWeight:400, fontSize:20, position:'relative'}}>{product.name.split(' ').slice(0,2).join(' ')}</p>
               <div style={{display:'flex',gap: 20,position:'absolute',}}>
