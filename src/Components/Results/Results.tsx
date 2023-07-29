@@ -14,7 +14,7 @@ const productData = Array.from({ length: 8 }, () => ({
   
 }));
 
-function getRandomNumber(min:number,max:number):number{
+const getRandomNumber=(min:number,max:number):number =>{
   return Math.floor(Math.random()* (max-min)+ min);
 }
 
@@ -76,34 +76,37 @@ const Results = () => {
       
       
       <div className='productlist'>
-       
-          <div>
-            {productData.map((product, index) => (
+        <div>
+          {productData.map((product, index) => (
             <div key={index} onMouseEnter={() => handleMouseEnter(index)} onMouseLeave={handleMouseLeave}>
-              <div style={{position:'relative'}}>
-              <img style={{borderRadius: 5}} src={product.imageUrl} alt={`Product ${index + 1}`} />
-              <div className='hearticon' onClick={()=>toggleFavorite(index)}><img src={favorites[index] ? filledheart: unfilledheart} alt='heart'/></div>
-              {showViewProduct === index && (
-                  <div className={`viewproduct ${showViewProduct === index ? 'show' : ''}`}>view product</div>
+              <div style={{ position: 'relative' }}>
+                <img style={{ borderRadius: 5 }} src={product.imageUrl} alt={`Product ${index + 1}`} />
+                <div className='hearticon' onClick={() => toggleFavorite(index)}>
+                  <img src={favorites[index] ? filledheart : unfilledheart} alt='heart' />
+                </div>
+                {showViewProduct === index && (
+                  <div className={`viewproduct ${showViewProduct === index ? 'show' : ''}`}>View Product</div>
                 )}
               </div>
-              <p style={{marginBottom:-10,fontWeight:400, fontSize:20, position:'relative'}}>{product.name.split(' ').slice(0,2).join(' ')}</p>
-              <div style={{display:'flex',gap: 20,position:'absolute',}}>
-              <p style={{textDecorationLine: 'line-through', color:'rgba(0, 0, 0, 0.40)', fontSize:20, fontWeight:300}}>Rs{getRandomNumber(100,999)}</p>
-              <p style={{color: 'blue', fontWeight:600, fontSize:20,}}>Rs {getRandomNumber(100,999)}</p>
-
+              <p style={{ marginBottom: -10, fontWeight: 400, fontSize: 20, position: 'relative' }}>
+                {product.name.split(' ').slice(0, 2).join(' ')}
+              </p>
+              <div style={{ display: 'flex', gap: 20, position: 'absolute' }}>
+                <p style={{ textDecorationLine: 'line-through', color: 'rgba(0, 0, 0, 0.40)', fontSize: 20, fontWeight: 300 }}>
+                  Rs{getRandomNumber(100, 999)}
+                </p>
+                <p style={{ color: 'blue', fontWeight: 600, fontSize: 20 }}>Rs {getRandomNumber(100, 999)}</p>
               </div>
               <div className='star'>
                 <img src={Star} alt='/' />
                 <p>(210)</p>
               </div>
             </div>
-              ))}
-          </div>
-          
+          ))}
+        </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Results
+export default Results;

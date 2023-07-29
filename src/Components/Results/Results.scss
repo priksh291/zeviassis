@@ -178,6 +178,16 @@ input {
 
         opacity: 0;
 
+        &.show {
+            // Show the button when it has the "show" class
+            display: block;
+            opacity: 1;
+    
+            // Define the transition properties for a smooth animation
+            transition: opacity 1s ease, transform 1s ease;
+            transform: translateY(0);
+          }
+
     }
 
 
@@ -186,6 +196,6 @@ div:hover .viewproduct {
     opacity: 1;
 
         // Define the transition properties for a smooth animation
-        transition: opacity 0.8s ease, transform 0.3s ease;
+        transition: opacity 0.8s ease, transform 0.8s ease;
         transform: translateY(0)
   }
