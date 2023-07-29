@@ -79,7 +79,7 @@ const Results = () => {
               <div className='hearticon' onClick={()=>toggleFavorite(index)}><img src={favorites[index] ? filledheart: unfilledheart} alt='heart'/></div>
 
               </div>
-              <p style={{marginBottom:-10,fontWeight:400, fontSize:20, position:'relative'}}>{product.name}</p>
+              <p style={{marginBottom:-10,fontWeight:400, fontSize:20, position:'relative'}}>{product.name.split(' ').slice(0,2).join(' ')}</p>
               <div style={{display:'flex',gap: 20,position:'absolute',}}>
               <p style={{textDecorationLine: 'line-through', color:'rgba(0, 0, 0, 0.40)', fontSize:20, fontWeight:300}}>Rs{getRandomNumber(100,999)}</p>
               <p style={{color: 'blue', fontWeight:600, fontSize:20,}}>Rs {getRandomNumber(100,999)}</p>
