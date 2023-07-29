@@ -6,7 +6,7 @@ import Star from './assets/Star.png';
 import filledheart from './assets/filledheart.png';
 import unfilledheart from './assets/unfilledheart.png';
 
-import './Results.css'
+import './Results.scss'
 
 const productData = Array.from({ length: 8 }, () => ({
   name: faker.commerce.productName(),

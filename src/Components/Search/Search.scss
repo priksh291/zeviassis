@@ -1,0 +1,118 @@
+$color_1: #999;
+$font-family_1: 'Inter', sans-serif;
+$background-color_1: white;
+
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap";
+body {
+	margin: 0;
+	padding: 0;
+}
+.search {
+	background-image: url(https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	width: 100vw;
+}
+.home {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	padding: 10px;
+	margin-top: 0x;
+}
+.searchbox {
+	display: absolute;
+	padding: 4px;
+	padding-left: 22px;
+	padding-right: 43px;
+	border-radius: 13px;
+	background: #FFF;
+	gap: 685px;
+	width: 580px;
+	height: 40px;
+	border: 1px solid #ccc;
+	margin-top: 300px;
+}
+input {
+	position: absolute;
+	border: none;
+	outline: none;
+	background: transparent;
+	font-family: $font-family_1;
+	font-size: 20px;
+	color: $color_1;
+	padding: 20px;
+	&::placeholder {
+		color: $color_1;
+		font-family: $font-family_1;
+		font-size: 20px;
+	}
+}
+.searchicon {
+	position: absolute;
+	width: 42px;
+	height: 25px;
+	top: 5%;
+	color: $color_1;
+	cursor: pointer;
+	margin-top: 145px;
+	left: 1040px;
+}
+.suggestion {
+	display: flex;
+	position: absolute;
+	margin: 25px;
+	left: 300px;
+	margin-top: 180px;
+	padding: 10px;
+	background-color: $background-color_1;
+	width: 850px;
+	height: 430px;
+	border-radius: 5px;
+	gap: 2px;
+	overflow: hidden;
+	font-family: $font-family_1;
+	font-weight: bold;
+	transition: max-height 0.8s ease-in-out;
+}
+.suggestion.show {
+	max-height: 1000px;
+}
+.suggesthead {
+	display: flex;
+	position: absolute;
+	padding: 1px;
+	margin: 10px;
+	margin-left: 20px;
+}
+.images {
+	border-radius: 5px;
+	padding-left: 30px;
+	padding-top: 42px;
+}
+.productname {
+	padding-left: 25px;
+	position: absolute;
+	font-size: 12px;
+}
+.product-container {
+	display: flex;
+	flex-wrap: nowrap;
+}
+.popsuggest {
+	position: absolute;
+	margin-top: 250px;
+	margin-left: 20px;
+	padding: 6px;
+	>ul {
+		list-style: none;
+		padding-left: 6px;
+		gap: 5px;
+		>li {
+			margin-bottom: 8px;
+			font-size: 12px;
+		}
+	}
+}

@@ -1,5 +1,5 @@
 import React, { useState, ChangeEvent } from 'react'
-import './Search.css';
+import './Search.scss';
 import { CiSearch } from "react-icons/ci";
 // import faker from 'faker';
 import { faker } from '@faker-js/faker';
