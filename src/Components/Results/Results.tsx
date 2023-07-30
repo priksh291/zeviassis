@@ -20,10 +20,10 @@ const getRandomNumber=(min:number,max:number):number =>{
 
 const Results = () => {
 
-  const[isExpanded, setIsExpanded] = useState(true);
-  const handleToggle = ()=>{
-    setIsExpanded(!isExpanded)
-  }
+  // const[isExpanded, setIsExpanded] = useState(true);
+  // const handleToggle = ()=>{
+  //   setIsExpanded(!isExpanded)
+  // }
   const [favorites,setFavorites] = useState(new Array(productData.length).fill(false));
   const toggleFavorite =(index:number)=>{
     const updatedFavorites = [...favorites];
@@ -41,38 +41,89 @@ const Results = () => {
   const handleMouseLeave = () => {
     setShowViewProduct(null);
   };
+
+  //accordian starts
+  const [expandedItem, setExpandedItem] = useState<number[]>([]);
+
+  const accordionItems = [
+    {
+      title: 'BRAND',
+      content: (
+        <div>
+          <input type="checkbox" id="checkbox1" />
+          <label htmlFor="checkbox1">Mango</label>
+          <br />
+          <input type="checkbox" id="checkbox2" />
+          <label htmlFor="checkbox2">H&M</label>
+        </div>
+      ),
+    },
+    {
+      title: 'PRICE RANGE',
+      content: (
+        <div>
+          <input type="checkbox" id="checkbox3" />
+          <label htmlFor="checkbox3">Under 500</label>
+          <br />
+          <input type="checkbox" id="checkbox4" />
+          <label htmlFor="checkbox4">1000 to 3000</label>
+        </div>
+      ),
+    },
+    // {
+    //   title: 'RATINGS',
+    //   content: (
+    //     <div>
+    //       <input type="checkbox" id="checkbox5" />
+    //       <label htmlFor="checkbox5"></label>
+    //       <br />
+    //       <input type="checkbox" id="checkbox6" />
+    //       <label htmlFor="checkbox6"></label>
+    //     </div>
+    //   ),
+    // },
+  ];
+
+  const toggleAccordion = (index: number) => {
+    if (expandedItem.includes(index)) {
+      setExpandedItem(expandedItem.filter((item) => item !== index));
+    } else {
+      setExpandedItem([...expandedItem, index]);
+    }
+  };
+
+
   return (
     <div>
-      <div>
-      <div className='result'>
-            <input className='resultsearch' type='name' placeholder='Search'/>
+      
+        <div className='result'>
+              <input className='resultsearch' type='name' placeholder='Search'/>
 
-            <CiSearch className='searchicons'/>
-      </div>
-      <div className='searchresult'>
-        <p>Search Results</p>
-        <div style={{position:'relative'}}>
-          <div className='brandname' onClick={handleToggle}>
-            <p>BRAND</p>
-            <IoIosArrowDown className={`downarrow ${isExpanded ? 'expanded' : ''}`}/>
+              <CiSearch className='searchicons'/>
+        </div>
+        <div className='searchresult'>
+          <p>Search Results</p>
+          <div className="accordion">
+            {accordionItems.map((item, index) => (
+              <div className="accordion-item" key={index}>
+                <button
+                  style={{display:'flex',justifyContent:'space-between'}}
+                  className={`accordion-title ${expandedItem.includes(index) ? 'expanded' : ''}`}
+                  onClick={() => toggleAccordion(index)}
+                >
+                  {item.title}
+                <IoIosArrowDown/>
+                </button>
+                {expandedItem.includes(index) && (
+                  <div className="accordion-content">
+                    {item.content}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-          {isExpanded && (
-            <div className='brand-content'>
-              <label className='label'>
-                <input className='checkbox' type='checkbox'/>
-                <div>H&M</div>
-              </label>
-              <label className='label'>
-                <input className='checkbox' type='checkbox'/>
-                <div>Mango</div>
-              </label>
-              
-            </div>
-          )}
-          
         </div>
-        </div>
-      </div>
+      
       
       
       <div className='productlist'>
