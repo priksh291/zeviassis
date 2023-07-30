@@ -60,6 +60,7 @@ input {
 	display: flex;
 	flex-direction: column;
 	padding: 20px;
+	margin-top: 67px;
 	padding-left: 35px;
 	margin-right: 1037px;
 	margin-bottom: auto;
@@ -116,7 +117,7 @@ input {
 	flex-wrap: wrap;
 	font-family: $font-family_1;
 	margin-left: 370px;
-	margin-top: 150px;
+	margin-top: 200px;
 	gap: 6px;
 	>div {
 		position: absolute;
@@ -147,7 +148,7 @@ input {
 	position: absolute;
 	top: 4px;
 	inset: 0;
-	left: 200px;
+	margin-left: 200px;
 	cursor: pointer;
 }
 
