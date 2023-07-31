@@ -5,6 +5,7 @@ import { faker } from '@faker-js/faker';
 import Star from './assets/Star.png';
 import filledheart from './assets/filledheart.png';
 import unfilledheart from './assets/unfilledheart.png';
+import StarRating from './assets/Star-rating';
 
 import './Results.scss'
 
@@ -70,18 +71,29 @@ const Results = () => {
         </div>
       ),
     },
-    // {
-    //   title: 'RATINGS',
-    //   content: (
-    //     <div>
-    //       <input type="checkbox" id="checkbox5" />
-    //       <label htmlFor="checkbox5"></label>
-    //       <br />
-    //       <input type="checkbox" id="checkbox6" />
-    //       <label htmlFor="checkbox6"></label>
-    //     </div>
-    //   ),
-    // },
+    {
+      title: 'RATINGS',
+      content: (
+        <div>
+          <input type="checkbox" id="checkbox3" />
+          <label htmlFor="checkbox3"><StarRating onRatingChange={(rating: number) => console.log(`Selected rating: ${rating}`)} /></label>
+          <br/>
+          <input type="checkbox" id="checkbox4" />
+          <label htmlFor="checkbox4"><StarRating onRatingChange={(rating: number) => console.log(`Selected rating: ${rating}`)} /></label>
+          <br/>
+          <input type="checkbox" id="checkbox5" />
+          <label htmlFor="checkbox5"><StarRating onRatingChange={(rating: number) => console.log(`Selected rating: ${rating}`)} /></label>
+          <br/>
+          <input type="checkbox" id="checkbox4" />
+          <label htmlFor="checkbox4"><StarRating onRatingChange={(rating: number) => console.log(`Selected rating: ${rating}`)} /></label>
+          <br/>
+          <input type="checkbox" id="checkbox3" />
+          <label htmlFor="checkbox3"><StarRating onRatingChange={(rating: number) => console.log(`Selected rating: ${rating}`)} /></label>
+          
+          
+        </div>
+      ),
+    },
   ];
 
   const toggleAccordion = (index: number) => {
@@ -91,6 +103,9 @@ const Results = () => {
       setExpandedItem([...expandedItem, index]);
     }
   };
+
+  //star
+
 
 
   return (
@@ -115,13 +130,16 @@ const Results = () => {
                 <IoIosArrowDown/>
                 </button>
                 {expandedItem.includes(index) && (
-                  <div className="accordion-content">
+                  <div className="accordion-content" >
                     {item.content}
                   </div>
                 )}
               </div>
             ))}
           </div>
+          {/* star rating */}
+          
+
         </div>
       
       
